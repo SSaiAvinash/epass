@@ -1,0 +1,75 @@
+<div class="login-wrapper" fxLayout="" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Apply For E-Pass</mat-card-title>
+      </mat-card-header>
+      <form class="example-form">
+  
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Gender</mat-label>
+            <mat-select disableRipple >
+              <mat-option value="1">Male</mat-option>
+              <mat-option value="2">Female</mat-option>
+              <mat-option value="3">Other</mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Mobile Number" required>
+          </mat-form-field>
+  
+        
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Enter your email</mat-label>
+              <input matInput placeholder="pat@example.com" [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+          
+  
+          <mat-form-field class="example-full-width">
+            <mat-label>Category of Travellers</mat-label>
+            <mat-select>
+              <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Present Address</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Destination Address</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+            <div class="upload">
+              <span>upload Photograph</span>
+              <input
+                #Image
+                type="file"
+                (change)="handleFileInput($event.target.files)"
+                accept=".jpg,.svg,.png,.jpeg"
+              />
+              <img
+                width="30%"
+                height="30%"
+                *ngIf="imageUrl"
+                [src]="imageUrl"
+                class="image"
+              />
+            </div>
+        </mat-card-content>
+        <br>
+  
+        <button mat-stroked-button color="accent" class="btn-block">Register</button>
+        
+  
+      </form>
+    </mat-card>
+  </div>

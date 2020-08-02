@@ -1,0 +1,76 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <h2>Apply For E-Pass</h2>
+    
+    
+    <form >
+     <mat-accordion>
+      <mat-expansion-panel *ngFor="let c of countries">
+        <mat-expansion-panel-header  >
+          <mat-panel-title>
+             select source 
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+    
+    <mat-form-field  [floatLabel]="auto">
+      <mat-select placeholder="Select state" #matSelect required>
+        <mat-option>-- None --</mat-option>
+    
+          <ng-container *ngFor="let s of states">
+        <mat-optgroup  *ngIf="c.name===s.countryId"  [label]="s.name">
+    
+      <ng-container *ngFor="let f of districts">
+        <mat-option *ngIf="f.state===s.name"  [value]="f.value" >
+          {{f.name}}
+          </mat-option>
+      </ng-container>
+        </mat-optgroup>
+        </ng-container> 
+      </mat-select>
+    </mat-form-field>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let c of countries">
+        <mat-expansion-panel-header  >
+          <mat-panel-title>
+             select destination 
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+    
+    <mat-form-field>
+      <mat-select placeholder="Select state" #matSelect1 required >
+        <mat-option>-- None --</mat-option>
+    
+          <ng-container *ngFor="let s of states">
+        <mat-optgroup  *ngIf="c.name===s.countryId"  [label]="s.name">
+    
+      <ng-container *ngFor="let g of districts">
+        <mat-option *ngIf="g.state===s.name"  [value]="g.value" >
+          {{g.name}}
+          </mat-option>
+      </ng-container>
+        </mat-optgroup>
+        </ng-container> 
+      </mat-select>
+    </mat-form-field>
+      </mat-expansion-panel>
+    </mat-accordion>
+    
+    <button mat-stroked-button color="accent" class="btn-block" routerLink="../register" routerLinkActive="active">Register</button>
+    
+    </form>
+  
+    
+    </mat-card>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let dat of data.Andhra Pradesh"
+
+    </div>
+
+  </div>
+ 
