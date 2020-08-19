@@ -27,7 +27,11 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/pdfmake/build/pdfmake.min.js",
+							"node_modules/pdfmake/build/vfs_fonts.js",
+							"node_modules/jszip/dist/jszip.min.js"
+            ]
           },
           "configurations": {
             "production": {

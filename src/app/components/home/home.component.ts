@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 import { MatSelect } from '@angular/material/select';
+import {  Dist } from "src/app/user";
 
 
 
@@ -32,19 +33,19 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   districts: any[] = [
-    {value: 1, name: 'East Godavari', state: 'AndhraPradesh'},
-    {value: 2, name: 'West Godavari', state: 'AndhraPradesh'},
-    {value: 3, name: 'Guntur', state: 'AndhraPradesh'},
-    {value: 4, name: 'Krishna', state: 'AndhraPradesh'},
-    {value: 5, name: 'Nellore', state: 'AndhraPradesh'},
-    {value: 6, name: 'Prakasam', state: 'AndhraPradesh'},
-    {value: 7, name: 'Srikakulam', state: 'AndhraPradesh'},
-    {value: 8, name: 'Visakhapatnam', state: 'AndhraPradesh'},
-    {value: 9, name: 'Vizianagaram', state: 'AndhraPradesh'},
-    {value: 10, name: 'Anantapur', state: 'AndhraPradesh'},
-    {value: 11, name: 'Chittoor', state: 'AndhraPradesh'},
-    {value: 12, name: 'Kadapa', state: 'AndhraPradesh'},
-    {value: 13, name: 'Kurnool', state: 'AndhraPradesh'},
+    {value: 'East Godavari', name: 'East Godavari', state: 'AndhraPradesh'},
+    {value: 'West Godavari', name: 'West Godavari', state: 'AndhraPradesh'},
+    {value: 'Guntur', name: 'Guntur', state: 'AndhraPradesh'},
+    {value: 'Krishna', name: 'Krishna', state: 'AndhraPradesh'},
+    {value: 'S.P.S. Nellore', name: 'Nellore', state: 'AndhraPradesh'},
+    {value: 'Prakasam', name: 'Prakasam', state: 'AndhraPradesh'},
+    {value: 'Srikakulam', name: 'Srikakulam', state: 'AndhraPradesh'},
+    {value: 'Visakhapatnam', name: 'Visakhapatnam', state: 'AndhraPradesh'},
+    {value: 'Vizianagaram', name: 'Vizianagaram', state: 'AndhraPradesh'},
+    {value: 'Anantapur', name: 'Anantapur', state: 'AndhraPradesh'},
+    {value: 'Chittoor', name: 'Chittoor', state: 'AndhraPradesh'},
+    {value: 'Y.S.R. Kadapa', name: 'Kadapa', state: 'AndhraPradesh'},
+    {value: 'Kurnool', name: 'Kurnool', state: 'AndhraPradesh'},
     {value: 14, name: 'Adilabad', state: 'Telengana'},
     {value: 15, name: 'Bhadradri Kothagudem', state: 'Telengana'},
     {value: 16, name: 'Hyderabad', state: 'Telengana'},
@@ -64,11 +65,25 @@ export class HomeComponent implements AfterViewInit {
 url="https://api.covid19india.org/state_district_wise.json";
 
 
-  constructor(private http: HttpClient) { 
-    this.http.get(this.url).toPromise().then(data=>{
-      console.log(data);
-    });
+District =new Dist("East Godavari","");
+
+
+  //constructor(private http: HttpClient) { 
+   // this.http.get(this.url).subscribe(data=>{
+     // console.log(data["Andhra Pradesh"]["districtData"][this.District.ds]);
+     // console.log(data["Andhra Pradesh"]["districtData"][this.District.dd]["active"]);
+    //});
+  //}
+  constructor(private http: HttpClient) {
+
   }
+
+  ngOnInit(){
+    let obs = this.http.get(this.url);
+    obs.subscribe((data)=>console.log(data["Andhra Pradesh"]["districtData"][this.District.ds]));
+
+  }
+
   
 
 
@@ -79,9 +94,13 @@ url="https://api.covid19india.org/state_district_wise.json";
 
     ngAfterViewInit() {
         this.matSelect.valueChange.subscribe(value => {
-            console.log(value);
+           // console.log(value);
         });
       }
+
+      
+      
+      
  
 
 
