@@ -65,7 +65,7 @@ export class HomeComponent implements AfterViewInit {
 url="https://api.covid19india.org/state_district_wise.json";
 
 
-District =new Dist("East Godavari","");
+District =new Dist("","");
 
 
   //constructor(private http: HttpClient) { 
@@ -85,8 +85,6 @@ District =new Dist("East Godavari","");
   }
 
   
-
-
     
 
   @ViewChild('matSelect') matSelect: MatSelect;
