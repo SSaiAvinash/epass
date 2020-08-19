@@ -29,8 +29,8 @@
             ],
             "scripts": [
               "node_modules/pdfmake/build/pdfmake.min.js",
-							"node_modules/pdfmake/build/vfs_fonts.js",
-							"node_modules/jszip/dist/jszip.min.js"
+              "node_modules/pdfmake/build/vfs_fonts.js",
+              "node_modules/jszip/dist/jszip.min.js"
             ]
           },
           "configurations": {
@@ -52,7 +52,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "4mb",
                   "maximumError": "5mb"
                 },
                 {
@@ -123,6 +123,10 @@
               "devServerTarget": "epass:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
